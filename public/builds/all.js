@@ -10,27 +10,18 @@ angular.module('bigCartelApp', ['ui.router']).config(function ($stateProvider, $
 
   $urlRouterProvider.otherwise('/');
 });
+angular.module('bigCartelApp').controller('homeCtrl', function ($scope) {});
 $(document).ready(function () {
 
-  // setTimeout(function() {
-  $(".home__nav").addClass("hidden");
-  // }, 500);
+  var nav = $(".home__nav");
+  var scrollPosition = $(window).scrollTop();
 
-  // $('*').addClass('hidden')
+  $(window).on('scroll', function () {
 
-  // setTimeout( _ => {
-  //   scrollPosition = $(window).scrollTop();
-  //   console.log('pos', scrollPosition)
-  // }, 200);
+    if ($(window).scrollTop() > scrollPosition) {
+      nav.addClass('hidden');
+    } else nav.removeClass('hidden');
 
-  // $(window).on('scroll', function() {
-  //   console.log('pos', scrollPosition)
-
-  //   if ($(window).scrollTop() !== 200) {
-  //     $('#home__nav').addClass('hidden');
-  //     console.log('show!')
-  //   }
-  //   else nav.addClass('hidden');
-  // })
+    scrollPosition = $(window).scrollTop();
+  });
 });
-angular.module('bigCartelApp').controller('homeCtrl', function ($scope) {});

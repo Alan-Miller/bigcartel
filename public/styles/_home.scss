@@ -2,8 +2,8 @@
   @include flexBox(column);
   background-color: $lightGray;
   width: 100%;
-  min-height: 300vh;
   position: relative;
+  font-family: Montserrat;
 }
 
 .nav-container {
@@ -11,6 +11,7 @@
   top: 0;
   height: $navHeight;
   width: $navWidth;
+  z-index: 10;
 }
 
 .nav-logo {
@@ -43,10 +44,7 @@
     width: 19px;
     margin-right: 5px;
   }
-  font: {
-    family: Montserrat;
-    size: .75rem;
-  }
+  font-size: .75rem;
   ul {
     @include flexBox;
     margin: 0 28px 0 25px;
@@ -71,3 +69,70 @@
     width: $navWidth1400;
   }
 }
+
+
+
+
+
+#we-believe {
+  @include flexBox(column);
+  height: 100vh;
+  width: 100vw;
+  // background-color: pink;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: relative;
+  #we-believe__vid {
+    position: absolute;
+    height: 130%;
+    width: 130%;
+    top: -100px;
+    left: -100px;
+    z-index: 0;
+  }
+  .believe-container {
+    width: 848px;
+    height: 470px;
+    z-index: 5;
+    @include flexBox(column);
+    position: relative;
+    bottom: 23px;
+  }
+  .believe-text {
+    background: url('../imgs/we-believe.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 848px;
+    height: 315px;
+    
+    @include flexBox(column, $justify:flex-end);
+  }
+  .believe-copy {
+    width: 555px;
+    margin-top: 13px;
+    font-size: .85rem;
+    font-weight: 200;
+    line-height: 1.7rem;
+    color: $lightGray;
+    text-align: center;
+    letter-spacing: .7px;
+  }
+  .play-video {
+    margin-top: 29px;
+    height: 50px;
+    width: 50px;
+    border: 2px solid $white;
+    border-radius: 50%;
+  }
+}
+
+#built-for-makers {
+  height: 100vh;
+  width: 100vw;
+  background-color: green;
+}
+
+
