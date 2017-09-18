@@ -1,6 +1,6 @@
 .home__main {
   @include flexBox(column);
-  background-color: red;
+  background-color: $white;
   width: 100%;
   min-height: 300vh;
   position: relative;
@@ -37,7 +37,7 @@
   color: RGBA(100, 100, 100, 1.00);
   height: $navHeight;
   width: $navWidth;
-  transition: .2s .3s;
+  transition: top .2s .3s;
   .nav-placeholder { 
     height: 19px; 
     width: 19px;
@@ -59,8 +59,15 @@
     letter-spacing: .6px;
   }
 
-  & li:hover { color: white; }
+  & li:hover { color: white; cursor: pointer; }
 
   &.hidden { top: -70px; }
 }
 
+
+
+@media (max-width: 1400px) {
+  .home__nav, .nav-container {
+    width: $navWidth1400;
+  }
+}
