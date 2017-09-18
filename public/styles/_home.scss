@@ -1,6 +1,6 @@
 .home__main {
   @include flexBox(column);
-  background-color: $white;
+  background-color: $lightGray;
   width: 100%;
   min-height: 300vh;
   position: relative;

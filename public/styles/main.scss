@@ -3,3 +3,7 @@
 @import "../styles/variables";
 @import "../styles/mixins";
 @import "../styles/home";
+
+html {
+  background-color: $lightGray;
+}

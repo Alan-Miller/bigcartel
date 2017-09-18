@@ -111,3 +111,6 @@ table {
 @media (max-width: 1400px) {
   .home__nav, .nav-container {
     width: 840px; } }
+
+html {
+  background-color: RGBA(238, 238, 238, 1); }
