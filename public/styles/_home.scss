@@ -1,0 +1,66 @@
+.home__main {
+  @include flexBox(column);
+  background-color: red;
+  width: 100%;
+  min-height: 300vh;
+  position: relative;
+}
+
+.nav-container {
+  position: fixed;
+  top: 0;
+  height: $navHeight;
+  width: $navWidth;
+}
+
+.nav-logo {
+  position: absolute;
+  left: 0;
+  height: 70px; 
+  width: 70px;
+  background-image: url('../imgs/bc-white.png');
+  background-position: center;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  margin-right: 5px;
+  background-color: $navGray;
+}
+
+
+.home__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background-color: $navGray;
+  color: RGBA(100, 100, 100, 1.00);
+  height: $navHeight;
+  width: $navWidth;
+  transition: .2s .3s;
+  .nav-placeholder { 
+    height: 19px; 
+    width: 19px;
+    margin-right: 5px;
+  }
+  font: {
+    family: Montserrat;
+    size: .75rem;
+  }
+  ul {
+    @include flexBox;
+    margin: 0 28px 0 25px;
+    li { 
+      display: inline; 
+      position: relative;
+      top: 1px;
+      margin-left: 36px;
+    }
+    letter-spacing: .6px;
+  }
+
+  & li:hover { color: white; }
+
+  &.hidden { top: -70px; }
+}
+
