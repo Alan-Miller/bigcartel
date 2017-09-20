@@ -1,138 +1,158 @@
 .home__main {
   @include flexBox(column);
+  @include pos(relative);
+  @include size($w:100%);
   background-color: $lightGray;
-  width: 100%;
-  position: relative;
   font-family: Montserrat;
 }
 
 .nav-container {
-  position: fixed;
-  top: 0;
-  height: $navHeight;
-  width: $navWidth;
-  z-index: 10;
-}
+  @include pos(fixed, $t:0, $z:10);
+  @include size($w:$navWidth, $h:$navHeight);
 
-.nav-logo {
-  position: absolute;
-  left: 0;
-  height: 70px; 
-  width: 70px;
-  background-image: url('../imgs/bc-white.png');
-  background-position: center;
-  background-size: 15px;
-  background-repeat: no-repeat;
-  margin-right: 5px;
-  background-color: $navGray;
-}
-
-
-.home__nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  background-color: $navGray;
-  color: RGBA(100, 100, 100, 1.00);
-  height: $navHeight;
-  width: $navWidth;
-  transition: top .2s .3s;
-  .nav-placeholder { 
-    height: 19px; 
-    width: 19px;
+  .nav-logo {
+    @include pos(absolute, $l:0);
+    @include size(70px, 70px);
+    @include bg($c:$navGray, $i:'../imgs/bc-white.png', $p:center, $s:15px);
     margin-right: 5px;
   }
-  font-size: .75rem;
-  ul {
-    @include flexBox;
-    margin: 0 28px 0 25px;
-    li { 
-      display: inline; 
-      position: relative;
-      top: 1px;
-      margin-left: 36px;
+
+  .home__nav {
+    @include flexBox($justify:'space-between', $alignI:center);
+    @include size($navWidth, $navHeight);
+    @include pos(fixed, $t:0);
+    background-color: $navGray;
+    color: RGBA(100, 100, 100, 1.00);
+    transition: top .2s .3s;
+    font-size: .75rem;
+    .nav-placeholder { 
+      @include size(19px, 19px);
+      margin-right: 5px;
     }
-    letter-spacing: .6px;
+    ul {
+      @include flexBox;
+      margin: 0 28px 0 25px;
+      li { 
+        @include pos(relative, $t:1px);
+        display: inline; 
+        margin-left: 36px;
+      }
+      letter-spacing: .6px;
+    }
+
+    & li:hover { color: white; cursor: pointer; }
+    &.hidden { top: -70px; }
   }
-
-  & li:hover { color: white; cursor: pointer; }
-
-  &.hidden { top: -70px; }
 }
 
+#we-believe {
+  @include flexBox(column);
+  @include size(100vw, 100vh);
+  @include pos(relative, 0, 0, 0, 0, 1);
+  overflow: hidden;
 
+  #we-believe__vid {
+    @include pos(absolute, $t:-100px, $l:-100px, $z:0);
+    @include size(130%, 130%);
+  }
+  .believe-container {
+    @include flexBox(column);
+    @include size(848px, 470px);
+    @include pos(relative, $b:23px, $z:5);
+  }
+  .believe-text {
+    @include flexBox(column, $justify:flex-end);
+    @include bg($i:'../imgs/we-believe.png', $p:center, $s:contain);
+    @include size(848px, 315px);
+  }
+  .believe-copy {
+    @include size(555px);
+    @include font($fs:.85rem, $fw:200, $lh:1.7rem, $ta:center, $ls:.7px);
+    margin-top: 13px;
+    color: $lightGray;
+  }
+  .play-video {
+    @include size(50px, 50px);
+    border: 2px solid $white;
+    border-radius: 50%;
+    margin-top: 29px;
+  }
+}
+
+#tour {
+  @include flexBox(column, $justify:flex-start);
+  @include size(100vw);
+  background-color: $lightGray;
+
+  .tour-box {
+    @include flexBox;
+    @include size(130px, 50px);
+    font-size: .7rem;
+    margin: 150px 0 57px 0;
+    border: 2px solid $gray;
+    color: $mediumGray;
+  }
+
+  .tour-copy {
+    @include flexBox(column);
+    @include size(628px);
+    h1 { 
+      @include font($fs:3rem, $fw:200, $ls:.9px, $ff:'Sentinel'); 
+      color: $copyBlack;
+    }
+    p { 
+      @include font($ff:Montserrat, $fw:200, $fs:.95rem, $ta:center, $lh:1.6rem); 
+      color: $copyGray;
+      margin: 20px 0 70px 0;
+    }
+  }
+
+  .tour-carousel {
+    @include flexBox;
+    @include size($navWidth, 530px);
+    @include pos(relative);
+    margin: 3px 0 150px 0;
+    // background-color: pink;
+    border-radius: 7px;
+    overflow: hidden;
+    .carousel-container {
+      @include size($navWidth, 530px);
+      @include pos(absolute, $l:0);
+      @include flexBox;
+      border: medium solid blue;
+    }
+    .img {
+      @include size(calc(#{$navWidth / 3}), 530px); 
+      border: medium solid purple;
+      overflow: hidden;
+      // display: none;
+    }
+    .side { 
+      @include size(calc(#{$navWidth / 2}), 530px); 
+      // display: none;
+      // @include pos(absolute);
+      opacity: .2;
+    }
+    .left-button { background-color: red; cursor: w-resize; }
+    .right-button { background-color: green; cursor: e-resize; }
+  }
+
+  .spacer {
+    @include size(100px, 100px);
+    background-color: green;
+    margin-top: 1000px;
+  }
+
+}
+
+.texture-border {
+  @include size(100vw, 300px);
+  @include pos(absolute, $b:0, $z:100);
+  @include bg($i:'../imgs/texture.png', $p:center bottom -5px);
+}
 
 @media (max-width: 1400px) {
   .home__nav, .nav-container {
     width: $navWidth1400;
   }
 }
-
-
-
-
-
-#we-believe {
-  @include flexBox(column);
-  height: 100vh;
-  width: 100vw;
-  // background-color: pink;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
-  position: relative;
-  #we-believe__vid {
-    position: absolute;
-    height: 130%;
-    width: 130%;
-    top: -100px;
-    left: -100px;
-    z-index: 0;
-  }
-  .believe-container {
-    width: 848px;
-    height: 470px;
-    z-index: 5;
-    @include flexBox(column);
-    position: relative;
-    bottom: 23px;
-  }
-  .believe-text {
-    background: url('../imgs/we-believe.png') no-repeat;
-    background-position: center;
-    background-size: contain;
-    width: 848px;
-    height: 315px;
-    
-    @include flexBox(column, $justify:flex-end);
-  }
-  .believe-copy {
-    width: 555px;
-    margin-top: 13px;
-    font-size: .85rem;
-    font-weight: 200;
-    line-height: 1.7rem;
-    color: $lightGray;
-    text-align: center;
-    letter-spacing: .7px;
-  }
-  .play-video {
-    margin-top: 29px;
-    height: 50px;
-    width: 50px;
-    border: 2px solid $white;
-    border-radius: 50%;
-  }
-}
-
-#built-for-makers {
-  height: 100vh;
-  width: 100vw;
-  background-color: green;
-}
-
-

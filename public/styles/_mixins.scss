@@ -5,3 +5,44 @@
   align-items: $alignI;
   align-content: $alignC;
 }
+
+@mixin size($w:default, $h:default) {
+  width: $w;
+  height: $h;
+}
+
+@mixin pos($pos:static, $l:initial, $t:initial, $r:initial, $b:initial, $z:0) {
+  position: $pos;
+  left: $l;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  z-index: $z;
+}
+
+@mixin bg($c:unset, $i:none, $p:unset, $r:no-repeat, $s:auto) {
+  background-color: $c;
+  background-image: url($i);
+  background-position: $p;
+  background-repeat: $r;
+  background-size: $s;
+}
+
+@mixin font($fs:unset, $ff:unset, $fw:unset, $ta:inherit, $ls:unset, $lh:normal) {
+  font-size: $fs;
+  font-family: $ff;
+  font-weight: $fw;
+  text-align: $ta;
+  letter-spacing: $ls;
+  line-height: $lh;
+}
+
+%montserrat {
+  font-family: Montserrat;
+}
+
+%sentinelLight {
+  font-family: 'Sentinel', sans-serif;
+  font-weight: 200;
+}
+

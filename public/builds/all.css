@@ -49,68 +49,85 @@ table {
   justify-content: center;
   align-items: center;
   align-content: flex-start;
-  background-color: RGBA(238, 238, 238, 1);
-  width: 100%;
   position: relative;
+  left: initial;
+  top: initial;
+  right: initial;
+  bottom: initial;
+  z-index: 0;
+  width: 100%;
+  height: default;
+  background-color: RGBA(238, 238, 238, 1);
   font-family: Montserrat; }
 
 .nav-container {
   position: fixed;
+  left: initial;
   top: 0;
-  height: 70px;
+  right: initial;
+  bottom: initial;
+  z-index: 10;
   width: 1240px;
-  z-index: 10; }
-
-.nav-logo {
-  position: absolute;
-  left: 0;
-  height: 70px;
-  width: 70px;
-  background-image: url("../imgs/bc-white.png");
-  background-position: center;
-  background-size: 15px;
-  background-repeat: no-repeat;
-  margin-right: 5px;
-  background-color: RGBA(34, 34, 34, 1); }
-
-.home__nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  background-color: RGBA(34, 34, 34, 1);
-  color: RGBA(100, 100, 100, 1);
-  height: 70px;
-  width: 1240px;
-  transition: top .2s .3s;
-  font-size: .75rem; }
-  .home__nav .nav-placeholder {
-    height: 19px;
-    width: 19px;
+  height: 70px; }
+  .nav-container .nav-logo {
+    position: absolute;
+    left: 0;
+    top: initial;
+    right: initial;
+    bottom: initial;
+    z-index: 0;
+    width: 70px;
+    height: 70px;
+    background-color: RGBA(34, 34, 34, 1);
+    background-image: url("../imgs/bc-white.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 15px;
     margin-right: 5px; }
-  .home__nav ul {
+  .nav-container .home__nav {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: "space-between";
     align-items: center;
     align-content: flex-start;
-    margin: 0 28px 0 25px;
-    letter-spacing: .6px; }
-    .home__nav ul li {
-      display: inline;
-      position: relative;
-      top: 1px;
-      margin-left: 36px; }
-  .home__nav li:hover {
-    color: white;
-    cursor: pointer; }
-  .home__nav.hidden {
-    top: -70px; }
-
-@media (max-width: 1400px) {
-  .home__nav, .nav-container {
-    width: 840px; } }
+    width: 1240px;
+    height: 70px;
+    position: fixed;
+    left: initial;
+    top: 0;
+    right: initial;
+    bottom: initial;
+    z-index: 0;
+    background-color: RGBA(34, 34, 34, 1);
+    color: RGBA(100, 100, 100, 1);
+    transition: top .2s .3s;
+    font-size: .75rem; }
+    .nav-container .home__nav .nav-placeholder {
+      width: 19px;
+      height: 19px;
+      margin-right: 5px; }
+    .nav-container .home__nav ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      align-content: flex-start;
+      margin: 0 28px 0 25px;
+      letter-spacing: .6px; }
+      .nav-container .home__nav ul li {
+        position: relative;
+        left: initial;
+        top: 1px;
+        right: initial;
+        bottom: initial;
+        z-index: 0;
+        display: inline;
+        margin-left: 36px; }
+    .nav-container .home__nav li:hover {
+      color: white;
+      cursor: pointer; }
+    .nav-container .home__nav.hidden {
+      top: -70px; }
 
 #we-believe {
   display: flex;
@@ -118,63 +135,186 @@ table {
   justify-content: center;
   align-items: center;
   align-content: flex-start;
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
+  position: relative;
+  left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0;
-  overflow: hidden;
-  position: relative; }
+  z-index: 1;
+  overflow: hidden; }
   #we-believe #we-believe__vid {
     position: absolute;
-    height: 130%;
-    width: 130%;
-    top: -100px;
     left: -100px;
-    z-index: 0; }
+    top: -100px;
+    right: initial;
+    bottom: initial;
+    z-index: 0;
+    width: 130%;
+    height: 130%; }
   #we-believe .believe-container {
-    width: 848px;
-    height: 470px;
-    z-index: 5;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: flex-start;
-    position: relative;
-    bottom: 23px; }
-  #we-believe .believe-text {
-    background: url("../imgs/we-believe.png") no-repeat;
-    background-position: center;
-    background-size: contain;
     width: 848px;
-    height: 315px;
+    height: 470px;
+    position: relative;
+    left: initial;
+    top: initial;
+    right: initial;
+    bottom: 23px;
+    z-index: 5; }
+  #we-believe .believe-text {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    align-content: flex-start; }
+    align-content: flex-start;
+    background-color: unset;
+    background-image: url("../imgs/we-believe.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 848px;
+    height: 315px; }
   #we-believe .believe-copy {
     width: 555px;
-    margin-top: 13px;
-    font-size: .85rem;
+    height: default;
+    font-size: 0.85rem;
+    font-family: unset;
     font-weight: 200;
-    line-height: 1.7rem;
-    color: RGBA(238, 238, 238, 1);
     text-align: center;
-    letter-spacing: .7px; }
+    letter-spacing: 0.7px;
+    line-height: 1.7rem;
+    margin-top: 13px;
+    color: RGBA(238, 238, 238, 1); }
   #we-believe .play-video {
-    margin-top: 29px;
-    height: 50px;
     width: 50px;
+    height: 50px;
     border: 2px solid RGBA(250, 250, 250, 1);
-    border-radius: 50%; }
+    border-radius: 50%;
+    margin-top: 29px; }
 
-#built-for-makers {
-  height: 100vh;
+#tour {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
   width: 100vw;
-  background-color: green; }
+  height: default;
+  background-color: RGBA(238, 238, 238, 1); }
+  #tour .tour-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+    width: 130px;
+    height: 50px;
+    font-size: .7rem;
+    margin: 150px 0 57px 0;
+    border: 2px solid RGBA(217, 217, 217, 1);
+    color: RGBA(189, 189, 189, 1); }
+  #tour .tour-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+    width: 628px;
+    height: default; }
+    #tour .tour-copy h1 {
+      font-size: 3rem;
+      font-family: "Sentinel";
+      font-weight: 200;
+      text-align: inherit;
+      letter-spacing: 0.9px;
+      line-height: normal;
+      color: RGBA(34, 34, 34, 1); }
+    #tour .tour-copy p {
+      font-size: 0.95rem;
+      font-family: Montserrat;
+      font-weight: 200;
+      text-align: center;
+      letter-spacing: unset;
+      line-height: 1.6rem;
+      color: RGBA(105, 105, 105, 1);
+      margin: 20px 0 70px 0; }
+  #tour .tour-carousel {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+    width: 1240px;
+    height: 530px;
+    position: relative;
+    left: initial;
+    top: initial;
+    right: initial;
+    bottom: initial;
+    z-index: 0;
+    margin: 3px 0 150px 0;
+    border-radius: 7px;
+    overflow: hidden; }
+    #tour .tour-carousel .carousel-container {
+      width: 1240px;
+      height: 530px;
+      position: absolute;
+      left: 0;
+      top: initial;
+      right: initial;
+      bottom: initial;
+      z-index: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      align-content: flex-start;
+      border: medium solid blue; }
+    #tour .tour-carousel .img {
+      width: calc(413.33333px);
+      height: 530px;
+      border: medium solid purple;
+      overflow: hidden; }
+    #tour .tour-carousel .side {
+      width: calc(620px);
+      height: 530px;
+      opacity: .2; }
+    #tour .tour-carousel .left-button {
+      background-color: red;
+      cursor: w-resize; }
+    #tour .tour-carousel .right-button {
+      background-color: green;
+      cursor: e-resize; }
+  #tour .spacer {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    margin-top: 1000px; }
+
+.texture-border {
+  width: 100vw;
+  height: 300px;
+  position: absolute;
+  left: initial;
+  top: initial;
+  right: initial;
+  bottom: 0;
+  z-index: 100;
+  background-color: unset;
+  background-image: url("../imgs/texture.png");
+  background-position: center bottom -5px;
+  background-repeat: no-repeat;
+  background-size: auto; }
+
+@media (max-width: 1400px) {
+  .home__nav, .nav-container {
+    width: 840px; } }
 
 html {
   background-color: RGBA(238, 238, 238, 1); }
