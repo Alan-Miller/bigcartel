@@ -18,7 +18,7 @@
   }
 
   .home__nav {
-    @include flexBox($justify:'space-between', $alignI:center);
+    @include flexBox($justify:space-between, $alignI:center);
     @include size($navWidth, $navHeight);
     @include pos(fixed, $t:0);
     background-color: $navGray;
@@ -32,12 +32,12 @@
     ul {
       @include flexBox;
       margin: 0 28px 0 25px;
+      letter-spacing: .6px;
       li { 
         @include pos(relative, $t:1px);
         display: inline; 
         margin-left: 36px;
       }
-      letter-spacing: .6px;
     }
 
     & li:hover { color: white; cursor: pointer; }
@@ -109,34 +109,32 @@
 
   .tour-carousel {
     @include flexBox;
-    @include size($navWidth, 530px);
+    @include size($navWidth, 730px);
     @include pos(relative);
     margin: 3px 0 150px 0;
-    // background-color: pink;
     border-radius: 7px;
     overflow: hidden;
     .carousel-container {
-      @include size($navWidth, 530px);
       @include pos(absolute, $l:0);
       @include flexBox;
-      border: medium solid blue;
     }
     .img {
-      @include size(calc(#{$navWidth / 3}), 530px); 
-      border: medium solid purple;
+      @include size($navWidth, 730px); 
       overflow: hidden;
-      // display: none;
+      @include pos(absolute);
+      transition: .2s;
+      // background-image: url("../imgs/tour1.jpg");
+      background-size: contain;
     }
     .side { 
-      @include size(calc(#{$navWidth / 2}), 530px); 
-      // display: none;
-      // @include pos(absolute);
-      opacity: .2;
+      @include size(calc(#{$navWidth / 2}), 730px); 
+      z-index: 1;
     }
-    .left-button { background-color: red; cursor: w-resize; }
-    .right-button { background-color: green; cursor: e-resize; }
+    .left-button { cursor: w-resize; }
+    .right-button { cursor: e-resize; }
   }
 
+  
   .spacer {
     @include size(100px, 100px);
     background-color: green;
@@ -155,4 +153,17 @@
   .home__nav, .nav-container {
     width: $navWidth1400;
   }
+}
+
+
+.indie {
+  @include size(100vw, 548px);
+  @include flexBox;
+  background-attachment: fixed;
+  background-color: red;
+  background-image: url("../imgs/indie.jpg"); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  // height: 545.3px;
 }

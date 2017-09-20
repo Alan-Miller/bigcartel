@@ -10,19 +10,26 @@ angular.module('bigCartelApp', ['ui.router']).config(function ($stateProvider, $
 
   $urlRouterProvider.otherwise('/');
 });
-angular.module('bigCartelApp').controller('homeCtrl', function ($scope) {
+angular.module('bigCartelApp').controller('homeCtrl', function ($scope, $timeout) {
 
-  $scope.tourImages = ['tour1.jpg', 'tour2.jpg', 'tour3.jpg'];
+  var navWidth = 1240;
 
-  $scope.slide = function (direction) {
-    if (direction === 'left') {
-      var end = $scope.tourImages.pop();
-      $scope.tourImages.unshift(end);
-    }
-    if (direction === 'right') {
-      var _end = $scope.tourImages.shift();
-      $scope.tourImages.push(_end);
-    }
+  $scope.tourImages = [{ url: './imgs/tour1.jpg' }, { url: './imgs/tour2.jpg' }, { url: './imgs/tour3.jpg' }];
+
+  $scope.slideLeft = function (direction) {
+    var newFirst = $scope.tourImages.pop();
+    $scope.tourImages.unshift(newFirst);
+  };
+
+  $scope.slideRight = function (direction) {
+    var newLast = $scope.tourImages.shift();
+    $timeout(function (_) {
+      $scope.tourImages.push(newLast);
+    }, 200);
+  };
+
+  $scope.position = function (index) {
+    return navWidth * index - navWidth + 'px';
   };
 });
 $(document).ready(function () {

@@ -1,20 +1,24 @@
-angular.module('bigCartelApp').controller('homeCtrl', function($scope) {
+angular.module('bigCartelApp').controller('homeCtrl', function($scope, $timeout) {
+
+  const navWidth = 1240;
   
   $scope.tourImages = [
-    {id: 1, url: 'tour1.jpg'},
-    {id: 2, url: 'tour2.jpg'},
-    {id: 3, url: 'tour3.jpg'}
+    {url: './imgs/tour3.jpg'}, // first indexed image is set to left of default image
+    {url: './imgs/tour1.jpg'}, // default displayed image 
+    {url: './imgs/tour2.jpg'}  // last indexed image is set to right of default image
   ]
+  
+  $scope.position = index => {
+    return navWidth * index - navWidth + 'px'
+  }
 
-  $scope.slide = direction => {
-    if (direction === 'left') {
-      const end = $scope.tourImages.pop();
-      $scope.tourImages.unshift(end);
-    }
-    if (direction === 'right') {
-      const end = $scope.tourImages.shift();
-      $scope.tourImages.push(end);
-    }
+  $scope.slideLeft = _ => {
+    const newFirst = $scope.tourImages.pop();
+    $scope.tourImages.unshift(newFirst);
+  }
+  $scope.slideRight = _ => {
+    const newLast = $scope.tourImages.shift();
+    $timeout( _ => { $scope.tourImages.push(newLast); }, 200);
   }
 
 });

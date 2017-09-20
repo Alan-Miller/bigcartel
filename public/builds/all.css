@@ -87,7 +87,7 @@ table {
   .nav-container .home__nav {
     display: flex;
     flex-direction: row;
-    justify-content: "space-between";
+    justify-content: space-between;
     align-items: center;
     align-content: flex-start;
     width: 1240px;
@@ -251,7 +251,7 @@ table {
     align-items: center;
     align-content: flex-start;
     width: 1240px;
-    height: 530px;
+    height: 730px;
     position: relative;
     left: initial;
     top: initial;
@@ -262,8 +262,6 @@ table {
     border-radius: 7px;
     overflow: hidden; }
     #tour .tour-carousel .carousel-container {
-      width: 1240px;
-      height: 530px;
       position: absolute;
       left: 0;
       top: initial;
@@ -274,22 +272,26 @@ table {
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      align-content: flex-start;
-      border: medium solid blue; }
+      align-content: flex-start; }
     #tour .tour-carousel .img {
-      width: calc(413.33333px);
-      height: 530px;
-      border: medium solid purple;
-      overflow: hidden; }
+      width: 1240px;
+      height: 730px;
+      overflow: hidden;
+      position: absolute;
+      left: initial;
+      top: initial;
+      right: initial;
+      bottom: initial;
+      z-index: 0;
+      transition: .2s;
+      background-size: contain; }
     #tour .tour-carousel .side {
       width: calc(620px);
-      height: 530px;
-      opacity: .2; }
+      height: 730px;
+      z-index: 1; }
     #tour .tour-carousel .left-button {
-      background-color: red;
       cursor: w-resize; }
     #tour .tour-carousel .right-button {
-      background-color: green;
       cursor: e-resize; }
   #tour .spacer {
     width: 100px;
@@ -315,6 +317,21 @@ table {
 @media (max-width: 1400px) {
   .home__nav, .nav-container {
     width: 840px; } }
+
+.indie {
+  width: 100vw;
+  height: 548px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-start;
+  background-attachment: fixed;
+  background-color: red;
+  background-image: url("../imgs/indie.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
 
 html {
   background-color: RGBA(238, 238, 238, 1); }

@@ -45,10 +45,18 @@
 
     <div class="tour-carousel">
       <div class="carousel-container">
-        <div ng-repeat="image in tourImages" class="img"><img ng-src="./imgs/{{ image.url }}" /></div>
+        <div class="img" 
+          ng-repeat="image in tourImages"
+          ng-style="{
+            left: position($index), 
+            backgroundImage: 'url( {{image.url}} )'
+          }"
+          >
+          <!-- <img ng-src="./imgs/{{ image.url }}" /> -->
+        </div>
       </div>
-      <div class="left-button side" ng-click="slide('left')"></div>
-      <div class="right-button side" ng-click="slide('right')"></div>
+      <div class="left-button side" ng-click="slideLeft()"></div>
+      <div class="right-button side" ng-click="slideRight()"></div>
     </div>
 
     <div class="tour-copy">
@@ -58,6 +66,10 @@
       <p>
           Easily customize the images, colors, fonts, and options of one of our beautiful pre-made themes, or if you’re comfortable with code, give your store a completely custom look by tweaking the HTML, CSS, and JavaScript directly.
       </p>
+    </div>
+
+    <div class="indie">
+      <img src="./imgs/indiependent.png" width="555" />
     </div>
 
     <div class="spacer"></div>
